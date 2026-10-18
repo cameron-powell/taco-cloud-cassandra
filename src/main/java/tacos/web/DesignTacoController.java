@@ -17,6 +17,8 @@ import tacos.Ingredient.Type;
 import tacos.data.IngredientRepository;
 import tacos.Taco;
 import tacos.TacoOrder;
+import tacos.TacoUDRUtils;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -73,7 +75,7 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(taco);
+        tacoOrder.addTaco(TacoUDRUtils.toTacoUDT(taco));
         log.info("Processing taco: {}", taco);
 
         return "redirect:/orders/current";
