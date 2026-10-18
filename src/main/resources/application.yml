@@ -2,6 +2,7 @@ spring:
     application:
         name: taco-cloud
     
-    datasource:
-        generate-unique-name: false
-        name: tacocloud
+    cassandra:
+        keyspace-name: tacocloud
+        schema-action: recreate
+        local-datacenter: datacenter1
